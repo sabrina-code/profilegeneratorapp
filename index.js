@@ -48,23 +48,23 @@ inquirer.prompt([
       const profile = generateHTML({ favcolor, ...data });
       return writeFileAsync("index.html", profile);
 
+
+    }).then(generatePdf = async () => {
+      // const htmlFile = fs.readFileSync('index.html', 'utf8');
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      const htmlFile = path.resolve("./index.html");
+      await page.goto("file://" + htmlFile, { waitUntil: "networkidle2" });
+      await page.setViewport({ width: 1400, height: 900 });
+      await page.pdf({
+        path: "./profile.pdf",
+        format: "Letter",
+        pageRanges: "1",
+        printBackground: true,
+      });
+      await browser.close();
     });
 });
-const generatePdf = async () => {
-  // const htmlFile = fs.readFileSync('index.html', 'utf8');
-
-  const htmlFile = path.resolve("./index.html");
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto("file://" + htmlFile);
-  await page.setViewport({ width: 1400, height: 900 });
-  await page.pdf({
-    path: "./sample.pdf",
-    format: "Letter",
-    printBackground: true,
-  });
-  await browser.close();
-}
 // const options = {
 //   height: "1100px",
 //   width: "1000px"
@@ -75,4 +75,4 @@ const generatePdf = async () => {
 //   open(`${username}.pdf`);
 // });
 
-generatePdf();
+// generatePdf();

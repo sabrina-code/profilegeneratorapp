@@ -43,6 +43,7 @@ function generateHTML(data) {
         h1 {
           font-size: 24pt;
           line-height: 1.8;
+          margin-top: 30px;
         }
         h2 {
           font-size: 14pt;
@@ -65,6 +66,7 @@ function generateHTML(data) {
           text-align: center;
           background-color: #ebebeb;
           padding: 60px;
+          margin: 20px;
           border-radius: 10px;
         }
         .work{
@@ -87,6 +89,9 @@ function generateHTML(data) {
           width:780px;
           margin:0 auto;
         }   
+        .info > a > img {
+          margin-right: 10px;
+      }
       </style>
     </head>
          
