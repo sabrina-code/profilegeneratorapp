@@ -46,33 +46,23 @@ inquirer.prompt([
       };
 
       const profile = generateHTML({ favcolor, ...data });
-      return writeFileAsync("index.html", profile);
+      return writeFileAsync(`${username}.html`, profile);
 
 
     }).then(generatePdf = async () => {
       // const htmlFile = fs.readFileSync('index.html', 'utf8');
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
-      const htmlFile = path.resolve("./index.html");
+      const htmlFile = path.resolve("./" + `${username}.html`);
       await page.goto("file://" + htmlFile, { waitUntil: "networkidle2" });
       await page.setViewport({ width: 1400, height: 900 });
       await page.pdf({
-        path: "./profile.pdf",
+        path: "./" + `${username}.pdf`,
         format: "Letter",
         pageRanges: "1",
         printBackground: true,
       });
       await browser.close();
+      open(`${username}.pdf`);
     });
 });
-// const options = {
-//   height: "1100px",
-//   width: "1000px"
-// };
-
-// pdf.create(html, options).toFile(`${username}.pdf`, function (err, res) {
-//   if (err) return console.log(err);
-//   open(`${username}.pdf`);
-// });
-
-// generatePdf();
