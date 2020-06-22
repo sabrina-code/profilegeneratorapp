@@ -91,14 +91,18 @@ function generateHTML(data) {
         }   
         .info > a > img {
           margin-right: 10px;
-      }
+        }
+        .portrait{
+          width: 300px;
+          height: 300px;
+        }
       </style>
     </head>
          
     <body>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <div><img src="${data.profilePic}" class="" alt="profile photo"></div>
+        <div><img src="${data.profilePic}" class="portrait" alt="profile photo"></div>
         <h1 class="display-4">My name is ${data.name}</h1>
         <h2 class="">${data.bio}</h2>
         <p class="lead">${data.company}</p>
