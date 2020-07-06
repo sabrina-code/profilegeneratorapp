@@ -23,6 +23,8 @@ The user will be prompted for a favorite color, which will be used as the backgr
 * Number of GitHub stars
 * Number of users following
 
+![profile](https://github.com/sabrina-code/profilegeneratorapp/blob/master/devProfile.jpg)
+
 ## Technology and Skills
 
 * HTML5
