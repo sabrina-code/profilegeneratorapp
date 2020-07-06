@@ -1,5 +1,5 @@
-# 09_Developer Profile Generator
-Create a command-line application that dynamically generates an .html and a .pdf profile from a GitHub username. 
+# profilegeneratorapp
+Create a command-line application that dynamically generates an .html and a .pdf profile from a GitHub username. A Developer Profile Generator (HW09).
 
 to run: npm index.js 
 
